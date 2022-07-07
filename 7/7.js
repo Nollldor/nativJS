@@ -16,7 +16,7 @@ const checkStart = (str1, str2) => str1.toLowerCase().startsWith(str2.toLowerCas
 //3. Реализуйте функцию, которая принимает параметром строку и число (количество символов), а возвращает строку из параметров, обрезанную до указанного количества символов и завершает её многоточием.
 //truncateString("Всем студентам инкубатора желаю удачи!", 10) => "Всем студе..."
 
-const truncateString = (str, length) => str.slice(0, length).join("") + "..."
+const truncateString = (str, length) => str.slice(0, length) + "..."
 
 /*console.log(truncateString("Всем студентам инкубатора желаю удачи!", 10))*/
 
@@ -24,18 +24,16 @@ const truncateString = (str, length) => str.slice(0, length).join("") + "..."
 // getMinLengthWord("Всем студентам инкубатора желаю удачи!") => "Всем"
 // getMinLengthWord("") => null
 
-const getMinLengthWord = (str) => str === ""? null : str.split(" ").reduce((acc, el) => acc.length < el.length ? acc : el)
+const getMinLengthWord = (str) => !str ?
+    null
+    : str.split(" ").reduce((acc, el) => acc.length < el.length ? acc : el)
 
 /*console.log(getMinLengthWord("Всем студентам инкубатора желаю удачи!"))*/
 
 //5. Реализуйте функцию, которая принимает параметром сторку (предложение) и возвращает то же предложение, где все слова написаны строчными, но начинаются с заглавных букв.
 // setUpperCase("всем стУдентам инкуБатора Желаю удачИ!") => "Всем Студентам Инкубатора Желаю Удачи!"
 
-const setUpperCase = (str) => str.toLowerCase().split(" ").map((el)=> {
-        let newEl = el.split("")
-        newEl[0] = newEl[0].toUpperCase()
-        return newEl.join("")
-    }).join(" ")
+const setUpperCase = (str) => str.toLowerCase().split(" ").map((el) => el[0].toUpperCase() + el.slice(1)).join(" ")
 
 
 /*console.log(setUpperCase("Nhhgjf sdasdasswWfdsfv JHGGK hfJBGFVGD"))*/
@@ -44,6 +42,6 @@ const setUpperCase = (str) => str.toLowerCase().split(" ").map((el)=> {
 // isIncludes("Incubator", "Cut") => true
 // isIncludes("Incubator", "table") => false
 
-const isIncludes = (str1, str2) => str2.toLowerCase().split("").every((el)=>str1.toLowerCase().split("").indexOf(el)>-1)
+const isIncludes = (str1, str2) => str2.toLowerCase().split("").every((el) => str1.toLowerCase().split("").indexOf(el) > -1)
 
 /*console.log(isIncludes("Incubator", "table"))*/

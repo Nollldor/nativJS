@@ -16,7 +16,7 @@ const checkStart = (str1, str2) => str1.toLowerCase().startsWith(str2.toLowerCas
 //3. Реализуйте функцию, которая принимает параметром строку и число (количество символов), а возвращает строку из параметров, обрезанную до указанного количества символов и завершает её многоточием.
 //truncateString("Всем студентам инкубатора желаю удачи!", 10) => "Всем студе..."
 
-const truncateString = (str, length) => str.split("").slice(0, length).join("") + "..."
+const truncateString = (str, length) => str.slice(0, length).join("") + "..."
 
 /*console.log(truncateString("Всем студентам инкубатора желаю удачи!", 10))*/
 
